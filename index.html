@@ -9,25 +9,46 @@
     <br>
     <p>You know why you are here.</p><br>
     <p>You will be put through a puzzle that involves cryptography, problem solving, and probably other things.</p><br>
-    <p>If you manage to solve all 10 levels, I will really begin to watch One Piece (IF you are the person who knows the correlation between silver and green If you aren't, then have fun.)</p><br>
+    <p>If you manage to solve all 10 levels, I will really begin to watch One Piece (IF you are the person who knows the correlation between silver and green. If you aren't, then have fun.)</p><br>
     <p>Now, One Piece is known to be ridiculously long. Therefore, I am not going to be making these levels easy.</p><br>
     <p>You will seldom recieve my help, though I <i>might</i> put hints along the way. Maybe.</p><br>
-    <p>Anyway, to prove that you are worthy enough, solve this entrance puzzle.</p><br>
-    <p id="level_1_code"></p>
-    <script>
-      function generateRandomString(length) {
-        let result = '';
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        const charactersLength = characters.length;
-        for (let i = 0; i < length; i++) {
-          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    <div id="competency_block">
+      <p>Lets first check if you are competent or not.</p><br>
+      <p id="competent_or_not"></p><br>
+      <script>
+        function generateRandomString(length) {
+          let result = '';
+          const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+          const charactersLength = characters.length;
+          for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+          }
+          return result;
         }
-        return result;
-      }
-
-      let codeText = document.getElementById('level_1_code');
-      let randomString = generateRandomString(10);
-      codeText.innerHTML = randomString
-    </script>
+  
+        let codeText = document.getElementById('competent_or_not');
+        let areYouCompetent = generateRandomString(10);
+        codeText.innerHTML = areYouCompetent
+      </script>
+      <form id="competency_test">
+        <label for="code">Code</label>
+        <input type="text" id="code" name="code">
+        <input type="submit" id="submit" value="Submit">
+      </form>
+      
+      <script>
+        const form = document.getElementById("competency_test")
+        form.addEventListener('submit', function(event) {
+          event.preventDefault();
+          const formData = new FormData(form);
+          const code = formData.get('code');
+          if (areYouCompetent == code){
+            codeText.innerHTML = "correct";
+          }
+       });
+      </script>
+    </div>
+    
+    <p>Anyway, to prove that you are worthy enough, solve this entrance puzzle.</p><br>
   </body>
 </html>
