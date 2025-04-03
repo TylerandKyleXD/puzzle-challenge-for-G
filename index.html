@@ -9,10 +9,25 @@
     <br>
     <p>You know why you are here.</p><br>
     <p>You will be put through a puzzle that involves cryptography, problem solving, and probably other things.</p><br>
-    <p>If you manage to solve all 10 levels, I will really begin to watch One Piece.</p><br>
+    <p>If you manage to solve all 10 levels, I will really begin to watch One Piece (IF you are the person who knows the correlation between silver and green If you aren't, then have fun.)</p><br>
     <p>Now, One Piece is known to be ridiculously long. Therefore, I am not going to be making these levels easy.</p><br>
     <p>You will seldom recieve my help, though I <i>might</i> put hints along the way. Maybe.</p><br>
-    <p>Anyway, to prove that you are worthy enough, solve this entrance puzzle.</p>
-    
+    <p>Anyway, to prove that you are worthy enough, solve this entrance puzzle.</p><br>
+    <p id="level_1_code"></p>
+    <script>
+      function generateRandomString(length) {
+        let result = '';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const charactersLength = characters.length;
+        for (let i = 0; i < length; i++) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+      }
+
+      let codeText = document.getElementById('level_1_codee');
+      let randomString = generateRandomString(10);
+      codeText.innerHTML = randomString
+    </script>
   </body>
 </html>
